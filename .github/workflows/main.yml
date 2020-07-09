@@ -32,11 +32,20 @@ jobs:
         dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
       working-directory: ./src
 
+    - name: ls no src
+      run: |
+        pwd
+        echo "---"
+        ls src
+        echo "---"
+        ls src/myapp
+        echo "---"
+        ls
     # Deploy to Azure Web apps
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }} # Define secret variable in repository settings as per action documentation
-        package: src/myapp'
+        package: ./src/myapp'
       
