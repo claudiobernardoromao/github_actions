@@ -30,4 +30,4 @@ steps:
     azureSubscription: 'DevSecOpsMeetUp'
     appType: 'webAppLinux'
     WebAppName: 'apitestegha'
-    packageForLinux: '$Build.ArtifactStagingDirectory)'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)'
