@@ -23,7 +23,7 @@ steps:
     publishWebProjects: false
     projects: '$(Build.SourcesDirectory)'
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/src'
+    workingDirectory: $(build.SourcesDirectory)/src
 
 - task: AzureRmWebAppDeployment@4
   inputs:
