@@ -20,9 +20,9 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    publishWebProjects: false
+    publishWebProjects: true
     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    workingDirectory: $(build.SourcesDirectory)/src
+    workingDirectory: '$(build.SourcesDirectory)/src'
 
 - task: AzureRmWebAppDeployment@4
   inputs:
